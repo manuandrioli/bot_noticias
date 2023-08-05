@@ -79,7 +79,7 @@ for noti in noticias:
 ###############################################################################################################
 
 texto_tweet = sustituir(titulo) + '\n' + '\n' + sustituir(descripcion) #tweet completo con título y descripción
-print(texto_tweet)
+#print(texto_tweet)
 
 try: #try de generar la imagen, ya que en algunas ocasiones los títulos contienen palabras explícitas y OpenAI no permite esos prompts
     url1 = generar_imagen_openAI(sustituir(titulo)) #genera una imagen con la IA de OpenAI, usando el título de prompt
@@ -95,9 +95,7 @@ if respuesta.status_code == 200:
 media = api.media_upload(filename='imagen_IA.jpg')
 
 
-
-
-""" if (not sustituir(titulo) == titulo ) and (not sustituir(descripcion) == descripcion): 
+if (not sustituir(titulo) == titulo ) and (not sustituir(descripcion) == descripcion): 
     #si hubo un cambio en título y descripción twittea
 
     if len(texto_tweet) < 280: 
@@ -111,4 +109,4 @@ media = api.media_upload(filename='imagen_IA.jpg')
 
 tweetId = tweet.data['id'] #guarda el id del tweet
 
-client.create_tweet(text=f'Noticia original: {link_noti}', in_reply_to_tweet_id=tweetId) #responde al tweet con la noticia original """
+client.create_tweet(text=f'Noticia original: {link_noti}', in_reply_to_tweet_id=tweetId) #responde al tweet con la noticia original
