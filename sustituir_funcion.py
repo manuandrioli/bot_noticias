@@ -20,8 +20,8 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
     nuevo_p = re.sub(r"[Ll]as elecciones|[Ee]lecciones",'la competencia nacional de discapacitados',nuevo_p)   
 
     #candidato
-    nuevo_p = re.sub(r"[Cc]andidato ",'malabarista ',nuevo_p) 
-    nuevo_p = re.sub(r"[Cc]andidatos",'malabarista',nuevo_p)    
+    nuevo_p = re.sub(r"[Cc]andidato ",'terrorista ',nuevo_p) 
+    nuevo_p = re.sub(r"[Cc]andidatos",'terroristas',nuevo_p)    
 
     #jugador
     nuevo_p = re.sub(r"[Jj]ugador ",'tarotista ',nuevo_p)   
@@ -133,6 +133,9 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
     #Larreta
     nuevo_p = re.sub(r"Horacio Larreta|Larreta",'El Pelado',nuevo_p)
 
+    #Jorge Macri
+    nuevo_p = re.sub(r"Jorge Macri",'El Macri Oscuro',nuevo_p)
+
     #deportista
     nuevo_p = re.sub(r"[Dd]eportista ",'repartidor de Rappi ',nuevo_p)
     nuevo_p = re.sub(r"[Dd]eportistas",'repartidores de Rappi',nuevo_p)
@@ -154,6 +157,7 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
     #gol/goles/golear
 
     #plantel
+    nuevo_p = re.sub(r"[Pp]lantel ",'grupo de póker ',nuevo_p)
 
     #boca
     nuevo_p = re.sub(r"Boca Juniors|Boca",'colectivo de actrices argentinas',nuevo_p)
@@ -168,7 +172,7 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
     #club
 
     #crimen
-    #nuevo_p = re.sub(r"[Cc]rimen ",'travesura',nuevo_p)
+    #nuevo_p = re.sub(r"[Cc]rimen ",' ',nuevo_p)
 
     #criminal
     nuevo_p = re.sub(r"[Cc]riminal ",'distinguido CEO',nuevo_p)
@@ -179,49 +183,63 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
     nuevo_p = re.sub(r"Iphone ",'Blackberry 8520',nuevo_p)
 
     #monotributista
+    nuevo_p = re.sub(r"[Mm]onotributista ",'mono ',nuevo_p)
+    nuevo_p = re.sub(r"[Mm]onotributistas",'monos',nuevo_p)
 
     #masterchef
     nuevo_p = re.sub(r"[Mm]asterchef",'Cocinando con Dross',nuevo_p)
 
     #argentina
+    nuevo_p = re.sub(r"Argentina",'Reino de Araucanía y Patagonia',nuevo_p)
 
     #dólar
-    nuevo_p = re.sub(r"[Dd]ólar ",'Baht tailandés',nuevo_p)
+    nuevo_p = re.sub(r"[Dd]ólar ",'Baht tailandés ',nuevo_p)
     nuevo_p = re.sub(r"[Dd]ólares",'Bahts tailandeses',nuevo_p)
 
     #propuesta/s
-    nuevo_p = re.sub(r"[Pp]ropuesta ",'lectura de borra',nuevo_p)
+    nuevo_p = re.sub(r"[Pp]ropuesta ",'lectura de borra ',nuevo_p)
     nuevo_p = re.sub(r"[Pp]ropuestas",'lecturas de borra',nuevo_p)
 
     #televisión
     #nuevo_p = re.sub(r"[Tt]elevisión",'',nuevo_p)
     
     #film
+    nuevo_p = re.sub(r"[F]ilm ",'fracaso ',nuevo_p)
 
     #cine
+    nuevo_p = re.sub(r"[Cc]ine ",'BitTorrent ',nuevo_p)
 
     #libro
 
     #porteño
+    nuevo_p = re.sub(r"[Pp]orteño ",'caribeño ',nuevo_p)
 
     #barrio
+    nuevo_p = re.sub(r"[Bb]arrio ",'sucucho asqueroso ',nuevo_p)
+    nuevo_p = re.sub(r"[Bb]arrios",'sucuchos asquerosos',nuevo_p)
+
+    #conurbano
+    nuevo_p = re.sub(r"[Cc]onurbano ",'Congourbano ',nuevo_p)
 
     #desarrolladores
+    nuevo_p = re.sub(r"[Dd]esarrolladores",'boludos que siempre están en la PC',nuevo_p)
 
     #vecinos
+    nuevo_p = re.sub(r"[Vv]ecinos",'gordos',nuevo_p)
 
     #empleo
 
     #campeón
 
     #celular
-    nuevo_p = re.sub(r"[Cc]elular",'máquina de fax',nuevo_p)
+    nuevo_p = re.sub(r"[Cc]elular ",'máquina de fax ',nuevo_p)
 
     #redes
 
     #internet
 
     #PRO
+    nuevo_p = re.sub(r" PRO ",' Partido Comunista Nepalés ',nuevo_p)
 
     #campaña
 
@@ -236,24 +254,27 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
     #libro/s
 
     #padrón
-    #nuevo_p = re.sub(r"[Pp]adrón",'',nuevo_p)
+    nuevo_p = re.sub(r"[Pp]adrón",'lista de compras',nuevo_p)
 
     #plataforma
 
     #amazon
 
     #instagram
-    nuevo_p = re.sub(r"Instagram ",'Fotolog',nuevo_p)
+    nuevo_p = re.sub(r"Instagram",'Fotolog',nuevo_p)
 
     #spotify
     nuevo_p = re.sub(r"Spotify",'Ares',nuevo_p)
 
     #tendencia
+    nuevo_p = re.sub(r"[Tt]endencia ",'estupidez ',nuevo_p)
 
     #furor
 
     #usuarios
+    nuevo_p = re.sub(r"[Uu]suarios",'gordos de internet',nuevo_p)
 
 
     return(nuevo_p) 
+
 

@@ -109,4 +109,5 @@ if (not sustituir(titulo) == titulo ) and (not sustituir(descripcion) == descrip
 
 tweetId = tweet.data['id'] #guarda el id del tweet
 
+
 client.create_tweet(text=f'Noticia original: {link_noti}', in_reply_to_tweet_id=tweetId) #responde al tweet con la noticia original
