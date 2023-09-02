@@ -1,4 +1,5 @@
 import re
+import random
 
 def sustituir(p): #función que sustituye algunas palabras de un párrafo con otras
     nuevo_p = p
@@ -20,8 +21,8 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
     nuevo_p = re.sub(r"[Ll]as elecciones|[Ee]lecciones",'la competencia nacional de discapacitados',nuevo_p)   
 
     #candidato
-    nuevo_p = re.sub(r"[Cc]andidato ",'terrorista ',nuevo_p) 
-    nuevo_p = re.sub(r"[Cc]andidatos",'terroristas',nuevo_p)    
+    nuevo_p = re.sub(r"[Cc]andidato ",'guerrillero ',nuevo_p) 
+    nuevo_p = re.sub(r"[Cc]andidatos",'guerrilleros',nuevo_p)    
 
     #jugador
     nuevo_p = re.sub(r"[Jj]ugador ",'tarotista ',nuevo_p)   
@@ -108,6 +109,7 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
 
     #duro
     nuevo_p = re.sub(r"[Dd]uro ",'rico ',nuevo_p)
+    nuevo_p = re.sub(r"[Dd]ifícil ",'rico ',nuevo_p)
 
     #actor
     nuevo_p = re.sub(r" [Aa]ctor ",' duendólogo libanés ',nuevo_p)
@@ -131,7 +133,7 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
     nuevo_p = re.sub(r"Alberto Fernández",'Taylor Swift',nuevo_p)
 
     #Larreta
-    nuevo_p = re.sub(r"Horacio Larreta|Larreta",'El Pelado',nuevo_p)
+    nuevo_p = re.sub(r"Horacio Rodríguez Larreta|Horacio Larreta|Larreta",'El Pelado',nuevo_p)
 
     #Jorge Macri
     nuevo_p = re.sub(r"Jorge Macri",'El Macri Oscuro',nuevo_p)
@@ -142,17 +144,18 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
 
     #votos
     nuevo_p = re.sub(r"[Vv]otos",'ojotas en un balde',nuevo_p)
-    nuevo_p = re.sub(r"[Vv]oto ",'ojota en un balde',nuevo_p)
+    nuevo_p = re.sub(r"[Vv]oto ",'ojota en un balde ',nuevo_p)
 
     #IA
-    nuevo_p = re.sub(r"[Ii]nteligencia artificial|IA",'comadreja',nuevo_p)
+    nuevo_p = re.sub(r"[Ii]nteligencia artificial",'comadreja',nuevo_p)
+    nuevo_p = re.sub(r" IA ",' comadreja ',nuevo_p)
 
     #tecnología
     nuevo_p = re.sub(r"[Tt]ecnología ",'obra de Nik Gaturro ',nuevo_p)
     nuevo_p = re.sub(r"[Tt]ecnologías",'obras de Nik Gaturro',nuevo_p)
 
     #Mauricio Macri
-    nuevo_p = re.sub(r"Mauricio Macri",'Tini Stoessel',nuevo_p)
+    nuevo_p = re.sub(r"Mauricio Macri|Macri",'Tini Stoessel',nuevo_p)
 
     #gol/goles/golear
 
@@ -160,14 +163,14 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
     nuevo_p = re.sub(r"[Pp]lantel ",'grupo de póker ',nuevo_p)
 
     #boca
-    nuevo_p = re.sub(r"Boca Juniors|Boca",'colectivo de actrices argentinas',nuevo_p)
+    nuevo_p = re.sub(r"Boca Juniors|Boca ",'colectivo de actrices argentinas ',nuevo_p)
     
     #river
-    nuevo_p = re.sub(r"River Plate|River",'asociación colombófila profesional',nuevo_p)
+    nuevo_p = re.sub(r"River Plate|River ",'asociación colombófila profesional ',nuevo_p)
 
     #tucumán
     nuevo_p = re.sub(r"[Tt]ucumano ",'tucumono',nuevo_p)
-    nuevo_p = re.sub(r"Tucumán",'micumán',nuevo_p)
+    nuevo_p = re.sub(r"Tucumán",'Micumán',nuevo_p)
 
     #club
 
@@ -204,7 +207,7 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
     #nuevo_p = re.sub(r"[Tt]elevisión",'',nuevo_p)
     
     #film
-    nuevo_p = re.sub(r"[F]ilm ",'fracaso ',nuevo_p)
+    nuevo_p = re.sub(r"[Ff]ilm ",'fracaso ',nuevo_p)
 
     #cine
     nuevo_p = re.sub(r"[Cc]ine ",'BitTorrent ',nuevo_p)
@@ -238,13 +241,21 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
 
     #internet
 
-    #PRO
-    nuevo_p = re.sub(r" PRO ",' Partido Comunista Nepalés ',nuevo_p)
+    #PRO / Juntos por el Cambio
+    nuevo_p = re.sub(r" PRO ",' Partido Comunista Nepalés (Marxista) ',nuevo_p)
+    nuevo_p = re.sub(r"Juntos por el Cambio",'Partido Comunista Nepalés (Marxista)',nuevo_p)
+
+    #Unión por la Patria
+    nuevo_p = re.sub(r"Unión por la Patria",'Partido Comunista Nepalés (Maoista)',nuevo_p)
+
+    #La Libertad Avanza
+    nuevo_p = re.sub(r"La Libertad Avanza|LLA",'Partido Comunista (Democrático)',nuevo_p)
 
     #campaña
+    nuevo_p = re.sub(r"[Cc]ampaña",'carrera en OnlyFans',nuevo_p)
 
     #estados unidos
-    nuevo_p = re.sub(r"Estados Unidos|EEUU",'Tiroteos Unidos',nuevo_p)
+    nuevo_p = re.sub(r"Estados Unidos|EEUU", random.choice(['Tiroteos Unidos','Estados Cogidos']),nuevo_p)
 
     #apple
 
@@ -254,7 +265,7 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
     #libro/s
 
     #padrón
-    nuevo_p = re.sub(r"[Pp]adrón",'lista de compras',nuevo_p)
+    nuevo_p = re.sub(r"[Ee]l padrón",'la lista de compras',nuevo_p)
 
     #plataforma
 
@@ -273,6 +284,45 @@ def sustituir(p): #función que sustituye algunas palabras de un párrafo con ot
 
     #usuarios
     nuevo_p = re.sub(r"[Uu]suarios",'gordos de internet',nuevo_p)
+
+    #juez
+    nuevo_p = re.sub(r"[Jj]uez",'delincuente profesional',nuevo_p)
+    nuevo_p = re.sub(r"[Jj]ueza",'delincuente profesional',nuevo_p)
+
+    #en vivo
+    nuevo_p = re.sub(r"[Ee]n vivo",'en bolas',nuevo_p)
+
+    #Sushi
+    nuevo_p = re.sub(r"[Ss]ushi",'mate cocido',nuevo_p)
+
+    #Asado
+    nuevo_p = re.sub(r"[Aa]sado|[Cc]arne",'polenta',nuevo_p)
+
+    #CONICET
+    nuevo_p = re.sub(r"CONICET|[Cc]onicet",'Tierra Santa',nuevo_p)
+
+    #FMI / Fondo Monetario Internacional
+    nuevo_p = re.sub(r"FMI|Fondo Monetario Internacional",'Caritas',nuevo_p)
+
+    #Banco Central
+    nuevo_p = re.sub(r"Banco Central",random.choice(['Banco Itau','Uggis']),nuevo_p)
+
+    #Vacuna
+    nuevo_p = re.sub(r"[Vv]acuna",'vacuna de carne',nuevo_p)
+
+    #Milei
+    nuevo_p = re.sub(r"Javier Milei|Milei",'Miley Cyrus',nuevo_p)
+
+    #Ayuno intermitante
+    nuevo_p = re.sub(r"[Aa]yuno intermitante",'ayuno permanente',nuevo_p)
+
+    #restaurante
+    nuevo_p = re.sub(r"[Aa]yuno intermitante",random.choice(['McDonalds','puesto de choripan de la ruta','señor que vende chipá en Once']),nuevo_p)
+
+    #sin gluten
+    nuevo_p = re.sub(r"[Ss]in gluten",'con seitan de gluten puro',nuevo_p)
+
+    #ONU / La ONU
 
 
     return(nuevo_p) 

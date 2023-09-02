@@ -5,8 +5,8 @@ import tweepy
 from twitter_keys import *
 import openai
 from PIL import Image
-import asyncio
 from sustituir_funcion import *
+import sqlite3
 
 
 ########################### autenticación ###################################
@@ -67,24 +67,19 @@ for noti in noticias:
     #descripcion = noti.find('div',class_='deck').text
     descripcion = noti.div.div.text
     link_noti='https://www.infobae.com'+noti['href']
-    """ for tweet_bot in tweets_bot:
-        print(tweet_bot.text)
-        if tweet_bot.text == sustituir(titulo) or tweet_bot.text == sustituir(descripcion):
-            continue
-        else:
-            pass """
+
     if (not sustituir(titulo) == titulo ) and (not sustituir(descripcion) == descripcion) :
         break
     
 ###############################################################################################################
 
 texto_tweet = sustituir(titulo) + '\n' + '\n' + sustituir(descripcion) #tweet completo con título y descripción
-#print(texto_tweet)
+print(texto_tweet)
 
 try: #try de generar la imagen, ya que en algunas ocasiones los títulos contienen palabras explícitas y OpenAI no permite esos prompts
     url1 = generar_imagen_openAI(sustituir(titulo)) #genera una imagen con la IA de OpenAI, usando el título de prompt
 except (openai.InvalidRequestError):
-    pass
+    print(requests.get(generar_imagen_openAI(sustituir(titulo))))
 respuesta = requests.get(url1)
 
 if respuesta.status_code == 200:
@@ -108,6 +103,19 @@ if (not sustituir(titulo) == titulo ) and (not sustituir(descripcion) == descrip
         
 
 tweetId = tweet.data['id'] #guarda el id del tweet
+tweetText= tweet.data['text']
 
+""" conn = sqlite3.connect('db_tuits.sql')
+cursor=conn.cursor()
+q1 = 'CREATE TABLE Tuits (id integer PRIMARY KEY, IdTuit integer NOT NULL,TextoTuit string NOT NULL);'
+cursor.execute(q1)
+
+q2 = f'INSERT INTO Tuits(IdTuit,TextoTuit) VALUES ({tweetId},{tweetText});'
+cursor.execute(q2)
+conn.commit()
+q3= f'SELECT TextoTuit FROM Tuits WHERE TextoTuit="{texto_tweet}";'
+cursor.execute(q3)
+tuitsdb = cursor.fetchall()
+ """
 
 client.create_tweet(text=f'Noticia original: {link_noti}', in_reply_to_tweet_id=tweetId) #responde al tweet con la noticia original
